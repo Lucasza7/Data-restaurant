@@ -1,8 +1,9 @@
+
 <?php
+
 class DB {
     private $dbh;
     protected $stmt;
- 
     public function __construct($db, $host = "localhost", $user = "root", $pass = "")
     {
         try {
@@ -12,12 +13,14 @@ class DB {
             die("Connection error: " . $e->getMessage());
         }
     }
- 
     public function execute($sql, $placeholders = null) {
         $stmt = $this->dbh->prepare($sql);
         $stmt->execute($placeholders);
         return $stmt;
     }
+
 }
-$myDb = new DB('roc')
+$myDb = new DB('dbName');
+
+
 ?>
